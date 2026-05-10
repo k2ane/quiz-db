@@ -1,0 +1,72 @@
+# --- 系统级文件 ---
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*~
+
+# --- 编程语言与包管理 ---
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# C / C++ (编译产物)
+*.o
+*.obj
+*.exe
+*.out
+*.app
+build/
+bin/
+CMakeLists.txt.user
+
+# --- 移动端开发 (Flutter / Android / iOS) ---
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+ios/.generated/
+android/.gradle/
+*.keystore
+*.jks
+
+# --- 硬件设计相关 (EDA Tools) ---
+# 常见的 PCB 设计临时文件 (Altium, KiCad, LCEDA)
+*.PcbDoc.htm
+*.Logs.zip
+*.History/
+*-bak/
+_autosave-*
+fp-info-cache
+
+# --- 编辑器与 IDE ---
+.vscode/
+# 注意：如果不希望共享调试配置，请取消下面这行的注释
+# .vscode/settings.json
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# --- 日志与临时数据 ---
+logs/
+*.log
+tmp/
+temp/
