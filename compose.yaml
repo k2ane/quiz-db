@@ -1,0 +1,45 @@
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server
+    container_name: mongodb_server
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    environment:
+      # 设置 MongoDB 的 Root 账号和密码（请自行修改）
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    volumes:
+      - ./mongo-data:/data/db
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo_express_ui
+    restart: unless-stopped
+    depends_on:
+      # 确保 mongodb 服务先启动
+      - mongodb
+    ports:
+      # Mongo Express 默认使用 8081 端口
+      - "8081:8081"
+    environment:
+      # 告诉 Mongo Express 如何连接到 MongoDB (账号密码需与上方一致，@后面的 mongodb 是服务名)
+      ME_CONFIG_MONGODB_URL: mongodb://admin:admin123@mongodb:27017/
+
+      # 设置你在浏览器中登录 Mongo Express 时使用的账号和密码
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin123
+
+  redis:
+    image: redis:latest
+    container_name: redis_server
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data/config/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-data:/data
+
+# 定义数据卷
+# volumes:
+#   mongo-data:
