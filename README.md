@@ -7,7 +7,7 @@
 ### 将本项目克隆到本地
 
 ```bash
-git clone https://git.snuffea.com/Bondex/quiz-db
+git clone https://github.com/k2ane/quiz-db
 ```
 
 ### 创建数据文件夹
