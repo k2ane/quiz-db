@@ -70,3 +70,6 @@ logs/
 *.log
 tmp/
 temp/
+
+mongo-data
+redis-data/*.*
